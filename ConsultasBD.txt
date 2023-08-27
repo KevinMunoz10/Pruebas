@@ -1,0 +1,28 @@
+-- Pregunta 8: 
+-- Interacción con Bases de Datos (opcional)
+-- Supongamos que tienes una tabla llamada Usuarios en una base de datos, con columnas como id, nombre, correo, etc. 
+-- Escribe una consulta SQL para seleccionar todos los usuarios cuyos nombres comienzan con "A".
+
+drop database if exists pruebas;
+
+Create database pruebas;
+use pruebas;
+create table Usuarios(
+	id int not null auto_increment,
+    nombre varchar(50) not null,
+    correo varchar(50) not null,
+    primary key (id)
+);
+
+select * from Usuarios;
+
+insert into Usuarios(nombre, correo)
+values
+('Juan Perez', 'juan.perez@example.com'),
+('Maria Rodriguez', 'maria.rodriguez@gmail.com'),
+('Carlos Sanchez', 'carlos.sanchez@example.com'),
+('Laura Martinez', 'laura.martinez@gmail.com'),
+('Andres Lopez', 'andres.lopez@example.com');
+
+select nombre, correo from Usuarios
+where nombre like 'A%'
